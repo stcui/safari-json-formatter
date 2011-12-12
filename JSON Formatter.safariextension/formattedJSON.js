@@ -10,7 +10,11 @@
       }
       // attempt to parse the body as JSON
       try {
-        var obj = JSON.parse( document.body.textContent
+        var content = document.body.textContent;;
+        var startAt = formatJSON._firstJSONCharIndex( content );
+        content = content.substring(startAt);
+        
+        var obj = JSON.parse( content
           .split( "\\" ).join( "\\\\" ) // double-up on escape sequences
           .split( '\\\"' ).join( "\\\\\"" ) // at this point quotes have been unescaped.  re-escape them.
         );
@@ -170,7 +174,21 @@
           el.className += " " + t;
           return el;
       }
+    },
+    
+    _firstJSONCharIndex: function ( s ) {
+      var arrayIdx = s.indexOf('[');
+      var objIdx = s.indexOf('{');
+      var idx = 0;
+      if (arrayIdx != -1) {
+        idx = arrayIdx;
+      }
+      if (objIdx != -1) {
+        idx = Math.min(objIdx, idx);
+      }
+      return idx;
     }
+        
   };
 
   // initialize!
