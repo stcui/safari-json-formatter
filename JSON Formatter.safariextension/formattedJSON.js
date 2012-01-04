@@ -184,7 +184,12 @@
         idx = arrayIdx;
       }
       if (objIdx != -1) {
-        idx = Math.min(objIdx, idx);
+        if (arrayIdx == -1) {
+          idx = objIdx;
+        }
+        else {
+          idx = Math.min(objIdx, arrayIdx);
+        }
       }
       return idx;
     }
