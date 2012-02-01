@@ -1,3 +1,5 @@
+Show unicode characters instead of hex code
+--------------------------------------------------
 # JSON Formatter
 
 A Safari extension which makes valid JSON documents human-readable.
