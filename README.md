@@ -1,4 +1,6 @@
 Show unicode characters instead of hex code
+[Download](https://github.com/stcui/safari-json-formatter/raw/unicode/build/JSON%20Formatter.safariextz)
+
 --------------------------------------------------
 # JSON Formatter
 
