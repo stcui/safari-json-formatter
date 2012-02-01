@@ -13,11 +13,14 @@
         var content = document.body.textContent;;
         var startAt = formatJSON._firstJSONCharIndex( content );
         content = content.substring(startAt);
-        
+
+/*        
         var obj = JSON.parse( content
           .split( "\\" ).join( "\\\\" ) // double-up on escape sequences
           .split( '\\\"' ).join( "\\\\\"" ) // at this point quotes have been unescaped.  re-escape them.
         );
+        */
+          var obj = JSON.parse(content);
       } catch( e ) {
         // invalid JSON :(
         return;
